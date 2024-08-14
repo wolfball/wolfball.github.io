@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Frankenstein generates semantic-compositional 3D scenes in a single forward pass.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frankenstein</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/frank-96.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Frankenstein: Generating <br>  Semantic-Compositional 3D Scenes <br> in One Tri-Plane
+          </h1>
+          <h2 class="title conference-title">
+            <small style="color:#9d2020;">SIGGRAPH Asia 2024 Conference Proceedings</small>
+          </h2>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=svfuXpwAAAAJ&hl=zh-CN">Han Yan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yang-l1.github.io/">Yang Li</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=rDXxDawAAAAJ">Zhennan Wu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Shenzhou Chen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://weixuansun.github.io/weixuansun-github.io/">Weixuan Sun</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=rv9ymNYAAAAJ&hl=zh-CN">Taizhang Shang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://weizheliu.github.io/">Weizhe Liu</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="">Tian Chen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Xiaqiang Dai</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://vision.sjtu.edu.cn/">Chao Ma</a><sup>1,<strong>†</strong></sup>
+            </span>
+            <span class="author-block">
+              <a href="http://users.cecs.anu.edu.au/~hongdong/">Hongdong Li</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/panji530">Pan Ji</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University</span>
+            <span class="author-block"><sup>2</sup>Tencent XR Vision Labs</span>
+            <br>
+            <span class="author-block"><sup>3</sup>The University of Tokyo</span>
+            <span class="author-block"><sup>4</sup>Australian National University</span>
+            <br>
+            <small><strong>†</strong>: Corresponding Author</small>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.16210"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/lRn-HqyCrLI"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser6.jpg"
+                 class="interpolation-image"/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Frankenstein</span> generates semantic-compositional 3D scenes in a single forward pass.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present Frankenstein, a diffusion-based framework that can generate semantic-compositional 3D scenes in a single pass. 
+            Unlike existing methods that output a single, unified 3D shape, Frankenstein simultaneously generates multiple separated shapes, each corresponding to a semantically meaningful part.
+            The 3D scene information is encoded in one single tri-plane tensor, from which multiple Signed Distance Function (SDF) fields can be decoded to represent the compositional shapes.
+            During training, an auto-encoder compresses tri-planes into a latent space, and then the denoising diffusion process is employed to approximate the distribution of the compositional scenes. 
+            Frankenstein demonstrates promising results in generating room interiors as well as human avatars with automatically separated parts.
+            The generated scenes facilitate many downstream applications, such as part-wise re-texturing, object rearrangement in the room or avatar cloth re-targeting.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/lRn-HqyCrLI?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Pipeline</h2>
+          <img src="./static/images/pipeline7.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          <p>
+            <b style="color:rgb(160, 43, 160)">Tri-plane fitting:</b> training scenes are converted into tri-planes. <br>
+            <b style="color:rgb(48, 143, 231)">VAE training:</b> tri-planes are compressed into latent tri-planes via an auto-encoder. <br>
+            <b style="color:rgb(243, 152, 25)">Conditional denoising:</b> the distributions of latent tri-planes are approximated by a diffusion model conditioned on layout maps. 
+          </p>   
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Room Generation</h2>
+          <div class="content has-text-justified">
+          <p>
+            Semantic-compositional scenes provide semantic priors, 
+            which are compatible with off-the-shelf object-targeted texturing models.
+            Additionally, 
+            object rearrangements can be performed to customize the room layout and appearance. 
+            Moreover, 
+            retrieval and refinement can be implemented as a post-processing stage to further enhance the quality of 3D models.
+          </p>
+        </div>
+          <img src="./static/images/room_final.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Generalization</h2>
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+          <p>
+            Our model demonstrates the ability to adhere to a conditional layout 
+            while maintaining generation capacity when altering the layouts configuration.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="8" value="0" type="range">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Avatar Generation</h2>
+          <div class="content has-text-justified">
+          <p>
+            The generated compositional avatar facilitates numerous downstream applications,
+            including component-wise texture generation, 
+            random cloth swapping, cloth re-targeting, and automatic rigging and animation.
+          </p>
+        </div>
+        <img src="./static/images/all_avatar_pipe2.jpg"
+                class="interpolation-image"
+                alt="Interpolate start reference image."/>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Gallery</h2>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-one-third">
+        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                  src="./static/glbs/000-bed.glb" 
+                  ar 
+                  shadow-intensity="1" 
+                  camera-controls 
+                  touch-action="pan-y"></model-viewer>
+
+
+        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                  src="./static/glbs/000-cab.glb" 
+                  ar 
+                  shadow-intensity="1" 
+                  camera-controls 
+                  touch-action="pan-y"></model-viewer>
+
+        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                  src="./static/glbs/000-wall.glb" 
+                  ar 
+                  shadow-intensity="1" 
+                  camera-controls 
+                  touch-action="pan-y"></model-viewer>
+
+      </div>
+      <div class="column is-one-third">
+        <img src="./static/images/triplane.jpg"
+              class="interpolation-image"
+              alt="Interpolate start reference image."/>
+      </div>
+      <div class="column is-one-third">
+        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                  src="./static/glbs/000-hair.glb" 
+                  ar 
+                  shadow-intensity="1" 
+                  camera-controls 
+                  touch-action="pan-y"></model-viewer>
+
+        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                  src="./static/glbs/000-body.glb" 
+                  ar 
+                  shadow-intensity="1" 
+                  camera-controls 
+                  touch-action="pan-y"></model-viewer>
+
+
+        <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+                  src="./static/glbs/000-garm.glb" 
+                  ar 
+                  shadow-intensity="1" 
+                  camera-controls 
+                  touch-action="pan-y"></model-viewer>
+      </div>
+    </div>
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yan2024frankenstein,
+  author    = {Han, Yan and Yang, Li and Zhennan, Wu and Shenzhou, Chen and Weixuan, Sun and Taizhang, Shang and Weizhe, Liu and Tian, Chen and Xiaqiang, Dai and Chao, Ma and Hongdong, Li and Pan, Ji},
+  title     = {Frankenstein: Generating Semantic-Compositional 3D Scenes in One Tri-Plane},
+  journal   = {SIGGRAPH Asia Conference Proceedings},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is based on <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
