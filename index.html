@@ -1,11 +1,319 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
+  <meta charset="UTF-8">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<head>
-</head>
+    <title>Han Yan</title>
 
-<body>
-  TBD...
-</body>
+    <meta name="author" content="Han Yan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/wolf.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  Han Yan (严涵)
+                </p>
+                <p>
+                  I am a second-year Ph.D. student at <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University (SJTU)</a>, 
+                  advised by Prof. <a href="https://vision.sjtu.edu.cn/">Chao Ma</a>.
+                  I received my bachelor's degree from Artificial Intelligence Honor Class at <a href="https://en.sjtu.edu.cn/">SJTU</a> in 2023, 
+                  supervised by Prof. <a href="https://vision.sjtu.edu.cn/">Chao Ma</a>.
+                </p>
+                <p>
+                  I am a research intern at Tencent XR Vision Lab, working with <a href="https://yang-l1.github.io/">Yang Li</a> and <a href="https://panji530.github.io/">Pan Ji</a>.
+                  I was a research intern at Bytedance, working with <a href="https://scholar.google.com/citations?user=WJSj6FUAAAAJ&hl=en">Celong Liu</a> and <a href="https://scholar.google.com/citations?user=Utqz3uYAAAAJ&hl=zh-CN">Xing Mei</a>.
+                </p>
+                <p>
+                  I am interested in 3D computer vision and graphics, especially focusing on 3D AIGC and 3D reconstruction.
+                </p>
+                <p style="text-align:center">
+                  <a href="mailto:wolfball@sjtu.edu.cn">Email</a> &nbsp;/&nbsp;
+                  <!-- <a href="data/JonBarron-CV.pdf">CV</a> &nbsp;/&nbsp; -->
+                  <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp; -->
+                  <a href="https://scholar.google.com/citations?user=svfuXpwAAAAJ&hl=zh-CN">Scholar</a> &nbsp;/&nbsp;
+                  <!-- <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp; -->
+                  <a href="https://github.com/wolfball">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="images/hanyan.jpg">
+                  <img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" 
+                       alt="profile photo" src="images/hanyan.jpg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <h2>News</h2>
+                  <p>
+                  <ul>
+                    <li>News (Jul 2024): One papers is accepted to SIGGRAPH Asia 2024 (Conferences Track).</li>
+                    <li>News (Jul 2024): One papers is accepted to ECCV 2024.</li>
+                    <li>News (Mar 2024): One papers is accepted to ACM Transactions on Graphics (SIGGRAPH) 2024.</li>
+                    <li>News (Feb 2023): One paper is accepted to CVPR 2023.</li>
+                  </ul>
+                  </p>
+                </td>
+              </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Publications</h2>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr onmouseout="frankenstein_stop()" onmouseover="frankenstein_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='frankenstein_image'><video  width=100% muted autoplay loop>
+                  <source src="images/frankenstein.jpg.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/frankenstein.jpg' width=100%>
+                </div>
+                <script type="text/javascript">
+                  function frankenstein_start() {
+                    document.getElementById('frankenstein_image').style.opacity = "1";
+                  }
+
+                  function frankenstein_stop() {
+                    document.getElementById('frankenstein_image').style.opacity = "0";
+                  }
+                  frankenstein_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://wolfball.github.io/frankenstein/">
+                  <span class="papertitle">Frankenstein: Generating Semantic-Compositional 3D Scenes in One Tri-Plane</span>
+                </a>
+                <br>
+                <strong>Han Yan</strong>, Yang Li, Zhennan Wu, Shenzhou Chen, 
+                Weixuan Sun, Taizhang Shang, Weizhe Liu, Tian Chen, Xiaqiang Dai, 
+                Chao Ma, Hongdong Li, Pan Ji
+                <br>
+                <em>SIGGRAPH Asia</em>, 2024
+                <br>
+                <a href="https://wolfball.github.io/frankenstein/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2403.16210">arXiv</a>
+                /
+                <a href="https://youtu.be/lRn-HqyCrLI">video</a>
+                <!-- <br>
+                <a style="color:rgb(255, 123, 0)"><em>3D Generation, Compositional</em></a> -->
+                <p>
+                Frankenstein generates <ins>semantic-compositional 3D scenes</ins> in a single forward pass.
+                </p>
+              </td>
+            </tr>
+            <tr onmouseout="neusdfusion_stop()" onmouseover="neusdfusion_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='neusdfusion_image'><video  width=100% height=100% muted autoplay loop>
+                  <source src="images/neusdfusion.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/neusdfusion.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function neusdfusion_start() {
+                    document.getElementById('neusdfusion_image').style.opacity = "1";
+                  }
+
+                  function neusdfusion_stop() {
+                    document.getElementById('neusdfusion_image').style.opacity = "0";
+                  }
+                  neusdfusion_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://weizheliu.github.io/NeuSDFusion/">
+              <span class="papertitle">NeuSDFusion: A Spatial-Aware Generative Model for 3D Shape Completion, Reconstruction, and Generation
+        </span>
+                </a>
+                <br>
+                Ruikai Cui, Weizhe Liu, Weixuan Sun, Senbo Wang, 
+                Taizhang Shang, Yang Li, Xibin Song, <strong>Han Yan</strong>, 
+                Zhennan Wu, Shenzhou Chen, Hongdong Li, Pan Ji
+                <br>
+                <em>ECCV</em>, 2024
+                <br>
+                <a href="https://weizheliu.github.io/NeuSDFusion/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2403.18241">arXiv</a>
+                <p></p>
+                <p>
+                  NeuSDFusion is a novel spatial-aware <ins>3D shape generation</ins> framework.
+                </p>
+              </td>
+            </tr>
+            <tr onmouseout="blockfusion_stop()" onmouseover="blockfusion_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='blockfusion_image'><video  width=100% height=100% muted autoplay loop>
+                  <source src="images/blockfusion.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/blockfusion.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function blockfusion_start() {
+                    document.getElementById('blockfusion_image').style.opacity = "1";
+                  }
+
+                  function blockfusion_stop() {
+                    document.getElementById('blockfusion_image').style.opacity = "0";
+                  }
+                  blockfusion_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://yang-l1.github.io/blockfusion/">
+              <span class="papertitle">Blockfusion: Expandable 3D Scene Generation using Latent Tri-plane Extrapolation
+        </span>
+                </a>
+                <br>
+                Zhennan Wu, Yang Li, <strong>Han Yan</strong>, Taizhang Shang, 
+                Weixuan Sun, Senbo Wang, Ruikai Cui, Weizhe Liu, 
+                Hiroyuki Sato, Hongdong Li, and Pan Ji
+                <br>
+                <em>ACM Transaction on Graphics (SIGGRAPH)</em>, 2024
+                <br>
+                <a href="https://yang-l1.github.io/blockfusion/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2401.17053">arXiv</a>
+                /
+                <a href="https://www.youtube.com/watch?v=PxIBtd6G0mA">video</a>
+                /
+                <a href="https://github.com/Tencent/BlockFusion">code</a>
+                <p></p>
+                <p>
+                Blockfusion directly generate large <ins>unbounded 3D scene</ins>.
+                </p>
+              </td>
+            </tr>
+            <tr onmouseout="plenvdb_stop()" onmouseover="plenvdb_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='plenvdb_image'><video  width=100% height=100% muted autoplay loop>
+                  <source src="images/plenvdb.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/plenvdb.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function plenvdb_start() {
+                    document.getElementById('plenvdb_image').style.opacity = "1";
+                  }
+
+                  function plenvdb_stop() {
+                    document.getElementById('plenvdb_image').style.opacity = "0";
+                  }
+                  plenvdb_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://plenvdb.github.io/">
+              <span class="papertitle">PlenVDB: Memory Efficient VDB-Based Radiance Fields for Fast Training and Rendering
+        </span>
+                </a>
+                <br>
+                <strong>Han Yan</strong>, Celong Liu, Chao Ma, Xing Mei
+                <br>
+                <em>CVPR</em>, 2023
+                <br>
+                <a href="https://plenvdb.github.io/">project page</a>
+                /
+                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Yan_PlenVDB_Memory_Efficient_VDB-Based_Radiance_Fields_for_Fast_Training_and_CVPR_2023_paper.pdf">pdf</a>
+                /
+                <a href="https://www.youtube.com/watch?v=Q_SDJiMugxk">video</a>
+                /
+                <a href="https://github.com/wolfball/PlenVDB">code</a>
+                <p></p>
+                <p>
+                PlenVDB directly learns the VDB data to achieve <ins>NeRF acceleration</ins>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Selected Awards</h2>
+                <p>
+                <ul>
+                  <li><a href="https://jwc.sjtu.edu.cn/info/1258/12637.htm">Best Bachelor Thesis, Shanghai Jiao Tong University (Top 1%), 2023.</a></li>
+                  <li>Outstanding Graduates, Shanghai Jiao Tong University, 2023.</li>
+                </ul>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Services</h2>
+                <p>
+                <ul>
+                  <li>Reviewer: AAAI</li>
+                </ul>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Miscellanea</h2>
+                <p>
+                <ul>
+                  <li>Sports: <a href="https://en.wikipedia.org/wiki/Lionel_Messi">⚽️🇦🇷🔟</a></li>
+                  <li>Music: R&B/Hiphop/Alternative, e.g. <a href="https://nikizefanya.com/">NIKI</a>.</li>
+                  <li>Manga: <a href="https://en.wikipedia.org/wiki/One_Piece">One Piece</a></li>
+                </ul>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:left;font-size:small;">
+                  Thanks to Jon Barron for the <a href="https://github.com/jonbarron/jonbarron_website">template</a>, and to Marie Lin for taking my profile photo.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+
+  <a href="https://www.easycounter.com/">
+    <img src="https://www.easycounter.com/counter.php?wolfball"
+    border="0" alt="HTML Counter"></a>
+    <br><a href="https://www.easycounter.com/">Hit Counters
+  </a>
 
 </html>
