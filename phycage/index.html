@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PhyCAGE generates physically plausible compositional 3D assets from a single image.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhyCAGE</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/heart.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            PhyCAGE: Physically Plausible Compositional 3D Asset Generation from a Single Image
+          </h1>
+          <!-- <h2 class="title conference-title">
+            <small style="color:#9d2020;">Arxiv</small>
+          </h2> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://wolfball.github.io/">Han Yan</a><sup>1,<strong>*</strong></sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Mingrui Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yang-l1.github.io/">Yang Li</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://vision.sjtu.edu.cn/">Chao Ma</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/panji530">Pan Ji</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University</span>
+            <span class="author-block"><sup>2</sup>Tencent XR Vision Labs</span>
+            <br>
+            <small><strong>*</strong>: Work done during internship at Tencent XR Vision Labs</small>
+            <!-- <small><strong>†</strong>: Corresponding Author</small> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- https://youtu.be/IHQqLli_s2o -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.jpg"
+                 class="interpolation-image"/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">PhyCAGE</span> generates physically plausible compositional 3D assets from a single image.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present <b>PhyCAGE</b>, the first approach for <b>Phy</b>sically plausible <b>C</b>ompositional 3D <b>A</b>sset <b>Ge</b>neration from a single Image.
+            Given an input image, we first generate consistent multi-view images for components of the assets. 
+            These images are then fitted with 3D Gaussian Splatting representations.
+            To ensure that the Gaussians representing objects are physically compatible with each other, 
+            we introduce a Physical Simulation-Enhanced Score Distillation Sampling (PSE-SDS) technique to further optimize the positions of the Gaussians.
+            It is achieved by setting the gradient of the SDS loss as the initial velocity of the physical simulation,
+            allowing the simulator to act as a physics-guided optimizer that progressively corrects the Gaussians' positions to a physically compatible state.
+            Experimental results demonstrate that the proposed method can generate physically plausible compositional 3D assets given a single image.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/lRn-HqyCrLI?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Pipeline</h2>
+          <img src="./static/images/pipeline.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          <p>
+            Given an input image, we first generate consistent multi-view images for the components of the assets. <br>
+            Then, we fit multi-view images with 3D Gaussian Splatting representations. <br>
+            Finally, we introduce a Physical Simulation-Enhanced SDS to further optimize the positions of the Gaussians. <br>
+          </p>   
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Physical Simulation-Enhanced Loss</h2>
+          <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div>
+          <img src="./static/images/psel.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interpolation -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Generalization</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our model demonstrates the ability to adhere to a conditional layout 
+            while maintaining generation capacity when altering the layouts configuration.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="8" value="0" type="range">
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Comparison with Baseline</h2>
+          <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div>
+        <img src="./static/images/sota.jpg"
+                class="interpolation-image"
+                alt="Interpolate start reference image."/>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Gallery</h2>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <p>"An axe. A red cloth."</p>
+        <img src="./static/images/gallery/axe.png" alt="axe" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/axe.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/axe-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A baby yoda in white. Clothes."</p>
+        <img src="./static/images/gallery/babyyoda.png" alt="babyyoda" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/babyyoda.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/babyyoda-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A bottle with a stopper. A red cloth."</p>
+        <img src="./static/images/gallery/bottle.png" alt="bottle" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/bottle.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/bottle-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A fox. Clothes."</p>
+        <img src="./static/images/gallery/fox.png" alt="fox" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/fox.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/fox-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A frog. A red cloth."</p>
+        <img src="./static/images/gallery/frog.png" alt="frog" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/frog.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/frog-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A plant. A flowerpot."</p>
+        <img src="./static/images/gallery/plant.png" alt="plant" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/plant.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/plant-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A shiba. A red collar."</p>
+        <img src="./static/images/gallery/shiba.png" alt="shiba" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/shiba.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/shiba-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A clean smooth skull with no cracks, grey, no light, dark. A helmet."</p>
+        <img src="./static/images/gallery/skeleton.png" alt="skeleton" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/skeleton.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/skeleton-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"A straw hat. Red ribbons."</p>
+        <img src="./static/images/gallery/strawhat.png" alt="strawhat" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/strawhat.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/strawhat-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div>
+        <p>"An open top trash can. A black plastic."</p>
+        <img src="./static/images/gallery/trash.png" alt="trash" width="190" height="190">
+        <video width="570" height="190" autoplay="autoplay" loop="loop">
+            <source src="static/videos/trash.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video width="190" height="190" autoplay="autoplay" loop="loop">
+          <source src="static/videos/trash-pcd-re.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <div class="colume content">
+          <h2 class="title is-3">Physical Simulation</h2>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>Elastic body simulation (the red cloth):</p>
+      <img src="./static/images/gallery/frog.png" alt="elastic" width="256" height="256">
+      <video width="256" height="256" controls>
+          <source src="static/videos/ela-rgb.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+      <video width="256" height="256" controls>
+        <source src="static/videos/ela-pcd.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div>
+      <p>Rigid body simulation (the helmet):</p>
+      <img src="./static/images/gallery/skeleton.png" alt="rigid" width="256" height="256">
+      <video width="256" height="256" controls>
+          <source src="static/videos/rig-rgb.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+      <video width="256" height="256" controls>
+        <source src="static/videos/rig-pcd.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{yan2024phycage,
+        author    = {Han, Yan and Mingrui, Zhang and Yang, Li and Chao, Ma and Pan, Ji},
+        title     = {PhyCAGE: Physically Plausible Compositional 3D Asset Generation from a Single Image},
+        journal   = {arxiv},
+        year      = {2024},
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is based on <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
