@@ -78,6 +78,49 @@
           </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr onmouseout="phycage_stop()" onmouseover="phycage_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='phycage_image'><video  width=100% muted autoplay loop>
+                  <source src="images/phycage.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/phycage.jpg' width=100%>
+                </div>
+                <script type="text/javascript">
+                  function phycage_start() {
+                    document.getElementById('phycage_image').style.opacity = "1";
+                  }
+
+                  function phycage_stop() {
+                    document.getElementById('phycage_image').style.opacity = "0";
+                  }
+                  phycage_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://wolfball.github.io/phycage/">
+                  <span class="papertitle">PhyCAGE: Physically Plausible Compositional 3D Asset Generation from a Single Image</span>
+                </a>
+                <br>
+                <strong>Han Yan</strong>, Mingrui Zhang, Yang Li, Chao Ma, Pan Ji
+                <br>
+                <em>arXiv</em>, 2024
+                <br>
+                <a href="https://wolfball.github.io/phycage/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2411.18548">arXiv</a>
+                /
+                <a href="https://youtu.be/IHQqLli_s2o">video</a>
+                <!-- /
+                <a href="https://github.com/Tencent/Frankenstein">code</a> -->
+                <!-- <br>
+                <a style="color:rgb(255, 123, 0)"><em>3D Generation, Compositional</em></a> -->
+                <p>
+                PhyCAGE generates <ins>physically plausible compositional 3D assets</ins> from a single image.
+                </p>
+              </td>
+            </tr>
             <tr onmouseout="frankenstein_stop()" onmouseover="frankenstein_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
