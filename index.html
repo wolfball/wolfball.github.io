@@ -24,7 +24,7 @@
                   Han Yan (严涵)
                 </p>
                 <p>
-                  I am a second-year Ph.D. student at <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University (SJTU)</a>, 
+                  I am a third-year Ph.D. student at <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University (SJTU)</a>, 
                   advised by Prof. <a href="https://vision.sjtu.edu.cn/">Chao Ma</a>.
                   I received my bachelor's degree from Artificial Intelligence Honor Class at <a href="https://en.sjtu.edu.cn/">SJTU</a> in 2023, 
                   supervised by Prof. <a href="https://vision.sjtu.edu.cn/">Chao Ma</a>.
@@ -34,7 +34,7 @@
                   I was a research intern at Bytedance, working with <a href="https://scholar.google.com/citations?user=WJSj6FUAAAAJ&hl=en">Celong Liu</a> and <a href="https://scholar.google.com/citations?user=Utqz3uYAAAAJ&hl=zh-CN">Xing Mei</a>.
                 </p>
                 <p>
-                  I am interested in 3D computer vision and graphics, especially focusing on 2D/3D AIGC and 3D reconstruction.
+                  I am interested in video generation and 3D computer vision and graphics.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:wolfball@sjtu.edu.cn">Email</a> &nbsp;/&nbsp;
@@ -78,6 +78,45 @@
           </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr onmouseout="bachvid_stop()" onmouseover="bachvid_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='bachvid_image'><video  width=100% muted autoplay loop>
+                  <source src="images/bachvid.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/bachvid.jpg' width=100%>
+                </div>
+                <script type="text/javascript">
+                  function bachvid_start() {
+                    document.getElementById('bachvid_image').style.opacity = "1";
+                  }
+
+                  function bachvid_stop() {
+                    document.getElementById('bachvid_image').style.opacity = "0";
+                  }
+                  bachvid_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://wolfball.github.io/bachvid/">
+                  <span class="papertitle">BachVid: Training-Free Video Generation with Consistent Background and Character</span>
+                </a>
+                <br>
+                <strong>Han Yan</strong>, Xibin Song, Yifu Wang, Hongdong Li, Pan Ji, Chao Ma
+                <br>
+                <em>arXiv</em>, 2025
+                <br>
+                <a href="https://wolfball.github.io/bachvid/">project page</a>
+                <!-- /
+                <a href="https://arxiv.org/abs/2411.18548">arXiv</a> -->
+                <!-- /
+                <a href="https://youtu.be/IHQqLli_s2o">video</a> -->
+                <p>
+                BachVid generates a batch of <ins>videos with consistent background and character</ins> using a training-free method.
+                </p>
+              </td>
+            </tr>
             <tr onmouseout="phycage_stop()" onmouseover="phycage_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
@@ -318,7 +357,7 @@
                 <h2>Services</h2>
                 <p>
                 <ul>
-                  <li>Reviewer: CVPR, AAAI, TGRS</li>
+                  <li>Reviewer: CVPR, ICCV, NeurIPS, ICLR, AAAI, WACV, TGRS</li>
                 </ul>
                 </p>
               </td>
