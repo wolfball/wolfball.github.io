@@ -99,10 +99,10 @@
               <a href="https://wolfball.github.io/">Han Yan</a><sup>1,<strong>*</strong></sup>,
             </span>
             <span class="author-block">
-              <a href="">Xibin Song</a><sup>2</sup>,
+              <a href="https://xbsong.github.io/">Xibin Song</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="">Yifu Wang</a><sup>2</sup>,
+              <a href="https://1fwang.github.io/">Yifu Wang</a><sup>2</sup>,
             </span>
             <span class="author-block">
               <a href="http://users.cecs.anu.edu.au/~hongdong/">Hongdong Li</a><sup>3</sup>,
@@ -227,16 +227,16 @@
       <h3 class="title is-4 method-title">Foreground Mask Extraction</h3>
       <div class="content has-text-justified">
         <p>
-          Each prompt includes foreground and background description. 
-          Our method first extracts foreground mask by comparing the cross-attention weight 
-          between video-to-foreground-text and video-to-background-text from specific layers at certain timesteps. 
-          Below we show the IoU between the ground-truth mask and the mask extracted from different layers and timesteps.
-          This process allows the model to separate the foreground (character) from the background during denoising process.
+          Each prompt contains both foreground and background descriptions.  
+          Our method first extracts the foreground mask by comparing the cross-attention weights between the video-to-foreground-text and video-to-background-text pairs from specific layers and timesteps.  
+          The figure below presents the IoU between the ground-truth mask and the masks extracted across different layers and timesteps.  
+          This procedure enables the model to effectively separate the foreground (character) from the background during the denoising process.
         </p>
         <p>
-          Hover over interactive points (highlighted in red) to see corresponding video outputs at specific layer indices and timesteps.
-          The darker point indicates higher IoU. CogVideoX has 42 transformer blocks and we set timesteps as 50.
+          Hover over the interactive points (highlighted in red) to view the corresponding video outputs at specific layer indices and timesteps.  
+          Darker points indicate higher IoU values. CogVideoX consists of 42 transformer blocks, and we set the number of timesteps to 50.
         </p>
+          
       </div>
       
       <!-- Interactive Heatmap -->
@@ -259,15 +259,13 @@
       <h3 class="title is-4 method-title">Matching Point Identification</h3>
       <div class="content has-text-justified">
         <p>
-          After extracting foreground masks, our method identify matching points between two video generation processes 
-          by calculating the similarity of the attention outputs from specific layers at certain timesteps.
-          Below we show MSE error between the ground-truth matching points and the points identified from different layers and timesteps.
-          This process helps establish correspondences between different video frames and these points serve as anchors 
-          that ensure consistent positioning of characters across multiple generated videos. CogVideoX has 42 transformer blocks and we set timesteps as 50.
+          After obtaining the foreground masks, our method identifies matching points between two video generation processes by measuring the similarity of attention outputs from selected layers and timesteps.  
+          The figure below shows the MSE error between the ground-truth matching points and those identified at different layers and timesteps.  
+          This step establishes correspondences across video frames, providing anchor points that ensure consistent character positioning across multiple generated videos.
         </p>
         <p>
-          Hover over interactive points (highlighted in red) to see corresponding images at specific layer indices and time steps.
-          The darker point indicates higher MSE error.
+          Hover over the interactive points (highlighted in red) to view the corresponding images at specific layer indices and timesteps.  
+          Darker points indicate higher MSE values. CogVideoX contains 42 transformer blocks, and the number of timesteps is set to 50.
         </p>
       </div>
       
@@ -288,15 +286,14 @@
       <h3 class="title is-4 method-title">Vital Layers Determination</h3>
       <div class="content has-text-justified">
         <p>
-          Determine vital layers for key-value injection to save memory while maintaining consistency between two video generation processes.
-          Not all layers in the DiT model contribute equally to maintaining consistency. 
-          Our method identifies vital layers that play a crucial role in preserving character 
-          and background consistency. By focusing on these layers during the injection of 
-          cached variables, we can achieve robust consistency while minimizing computational overhead.
+          With the masks and correspondences obtained, we determine which layers to apply key-value injection by evaluating the aesthetic quality of generated videos when selectively skipping each layer.  
+          The line chart below shows the aesthetic (AES) score across layers.  
+          This strategy significantly reduces memory consumption while maintaining consistency between the two video generation processes,  
+          since storing all key-value pairs across timesteps and layers is infeasible for DiT-based video models due to their large depth and latent dimensionality.
         </p>
         <p>
-          Hover over interactive points (highlighted in red) to see corresponding video outputs at specific layer indices.
-          CogVideoX has 42 transformer blocks.
+          Hover over the interactive points (highlighted in red) to view the corresponding video outputs at specific layer indices.  
+          CogVideoX consists of 42 transformer blocks.
         </p>
       </div>
       
@@ -334,12 +331,12 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-@article{yan2025bachvid,
+<!-- @article{yan2025bachvid,
   title={BachVid: Training-Free Video Generation with Consistent Background and Character},
   author={Yan, Han and Song, Xibin and Wang, Yifu and Li, Hongdong and Ji, Pan and Ma, Chao},
   journal={arXiv preprint arXiv:xxxx.xxxx},
   year={2025}
-}
+} -->
     </code></pre>
   </div>
 </section>
